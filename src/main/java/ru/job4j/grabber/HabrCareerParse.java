@@ -5,7 +5,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
 
 public class HabrCareerParse {
@@ -14,7 +13,8 @@ public class HabrCareerParse {
     private static final String PAGE_LINK = String.format("%s/vacancies/java_developer?page=", SOURCE_LINK);
 
     public static void main(String[] args) throws IOException {
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("\nPAGE " + i);
             Connection connection = Jsoup.connect(PAGE_LINK + i);
             Document document = connection.get();
             Elements rows = document.select(".vacancy-card__inner");
