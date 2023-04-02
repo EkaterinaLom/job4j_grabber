@@ -12,10 +12,12 @@ public class HabrCareerParse {
     private static final String SOURCE_LINK = "https://career.habr.com";
     private static final String PAGE_LINK = String.format("%s/vacancies/java_developer?page=", SOURCE_LINK);
 
-    private String retrieveDescription(String link) throws IOException {
+    private static String retrieveDescription(String link) throws IOException {
+        StringBuilder description = new StringBuilder();
         Connection connection = Jsoup.connect(link);
         Document document = connection.get();
-        return document.select(".vacancy-description_text").first().text();
+        description.append(document.select(".vacancy-description__text").text());
+        return description.toString();
     }
 
     public static void main(String[] args) throws IOException {
@@ -32,6 +34,11 @@ public class HabrCareerParse {
                 String link = String.format("%s%s", SOURCE_LINK, linkElement.attr("href"));
                 String date = dateElement.attr("datetime");
                 System.out.printf("%s %s %s%n", vacancyName, link, date);
+                try {
+                    System.out.println(retrieveDescription(link));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             });
         }
     }
