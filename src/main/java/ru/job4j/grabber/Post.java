@@ -19,6 +19,25 @@ public class Post {
         this.created = created;
     }
 
+    public Post() {
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -39,11 +58,11 @@ public class Post {
     @Override
     public String toString() {
         return "Post{"
-                + "id=" + id
+                + "id='" + id
                 + ", title='" + title + '\''
                 + ", link='" + link + '\''
                 + ", description='" + description + '\''
-                + ", created=" + created
+                + ", created='" + created
                 + '}';
     }
 }
