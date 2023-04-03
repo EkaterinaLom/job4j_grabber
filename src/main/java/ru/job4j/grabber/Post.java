@@ -22,6 +22,26 @@ public class Post {
     public Post() {
     }
 
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
